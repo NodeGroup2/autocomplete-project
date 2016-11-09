@@ -28,6 +28,7 @@ html, body {
   outline: none;
   font-family: 'Dosis', sans-serif;
   font-size: 1.2rem;
+  vertical-align: middle;
 }
 
 .search_btn {
@@ -38,4 +39,5 @@ html, body {
   height: 44px;
   width: 44px;
   outline: none;
+  vertical-align: middle;
 }
