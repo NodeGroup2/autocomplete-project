@@ -1,0 +1,19 @@
+{
+  "name": "autocomplete-project",
+  "version": "1.0.0",
+  "description": "Build an autocomplete app (full stack)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NodeGroup2/autocomplete-project.git"
+  },
+  "author": "nodeToJoy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NodeGroup2/autocomplete-project/issues"
+  },
+  "homepage": "https://github.com/NodeGroup2/autocomplete-project#readme"
+}
