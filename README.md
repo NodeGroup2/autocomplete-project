@@ -13,7 +13,7 @@
 - Get a full-suite of github repo badges in the readme
 
 ## Project plan
-![Project plan](/project-plan.jpg)
+![Project plan](images/project-plan.jpg)
 
 ## Application flow
 - Read full file (for efficiency)
