@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="public/normalize.css" media="screen">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis">
   <link rel='stylesheet' href='public/styles.css'>
@@ -10,14 +10,25 @@
   <link rel='stylesheet' href='https://code.jquery.com/qunit/qunit-2.0.1.css'>
 </head>
 <body>
-<header class="header">Text Toads</header>
+  <header class="header">Text Toads</header>
   <section class="content">
     <input class="input_field" type="text" name="lname">
     <button class="search_btn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+    <div class="suggestion_container slider_down closed">
+      <ul class="suggestion_list" role="listbox">
+        <li class="suggestion_element"></li>
+        <li class="suggestion_element"></li>
+        <li class="suggestion_element"></li>
+        <li class="suggestion_element"></li>
+        <li class="suggestion_element"></li>
+      </ul>
+    </div>
   </section>
+  <script src="https://use.fontawesome.com/dab6567ebf.js"></script>
+  <script type="text/javascript" src='public/app.js'> </script>
+  <!-- QUnit html  -->
   <div id='qunit'></div>
   <div id='qunit-fixture'></div>
-  <script src="https://use.fontawesome.com/dab6567ebf.js"></script>
 
   <script src='src/server.js'></script>
   <script src='https://code.jquery.com/qunit/qunit-2.0.1.js'></script>
