@@ -23,7 +23,7 @@ test('Dictionary loading', function(t) {
 
 test('Dictionary length', function(t) {
   readDictionary('/../tests/tape/dictionary.txt',null,function(err,database) {
-    t.deepEqual(database.length,19999);
+    t.deepEqual(database.length,9999);
     t.end();
   });
 })
