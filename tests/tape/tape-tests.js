@@ -21,6 +21,13 @@ test('Dictionary loading', function(t) {
   });
 })
 
+test('Dictionary length', function(t) {
+  readDictionary('/../tests/tape/dictionary.txt',null,function(err,database) {
+    t.deepEqual(database.length,9999);
+    t.end();
+  });
+})
+
 // test('search for a word in a string', function(t) {
 //     t.deepEqual(wordSearch('Shir'),['Shireen','Shiry']);
 //     t.end();
