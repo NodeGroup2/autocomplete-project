@@ -1,6 +1,7 @@
-module.exports = readDictionary;
 
 var fs = require('fs');
+
+var dictionary = ['We', 'are', 'Esraa', 'Shireen', 'Marina', 'Marko', 'Shiry', 'Make', 'Sleep', 'End'];
 
 function readDictionary(dataBasePath, separator, cb){
   dataBasePath = dataBasePath || '/database.txt';
@@ -13,3 +14,4 @@ function readDictionary(dataBasePath, separator, cb){
     cb(null, data.split(separator).filter(function(x){return x !== ''}));
  });
 }
+module.exports = {readDictionary,dictionary};

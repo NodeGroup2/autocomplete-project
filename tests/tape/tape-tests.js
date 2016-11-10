@@ -1,5 +1,5 @@
 var test = require('tape');
-var readDictionary = require('../../src/readDictionary.js');
+var readDictionary = require('../../src/readDictionary.js').readDictionary;
 var wordSearch = require('../../src/wordSearch.js');
 
 test('Description for your test', function(t) {
@@ -23,7 +23,7 @@ test('Dictionary loading', function(t) {
 
 test('Dictionary length', function(t) {
   readDictionary('/../tests/tape/dictionary.txt',null,function(err,database) {
-    t.deepEqual(database.length,9999);
+    t.deepEqual(database.length,10000);
     t.end();
   });
 })
