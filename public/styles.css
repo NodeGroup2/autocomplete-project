@@ -22,7 +22,7 @@ html, body {
 }
 
 .input_field {
-  width: 300px;
+  width: 288px;
   height: 40px;
   border: 1px black solid;
   outline: none;
@@ -30,6 +30,7 @@ html, body {
   font-size: 1.2rem;
   vertical-align: middle;
   border-radius: 2px;
+  padding-left: 12px;
 }
 
 .search_btn {
@@ -50,7 +51,7 @@ html, body {
 }
 
 .suggestion_list {
-  height: 150px;
+  height: 180px;
   background-color: rgb(208, 208, 208);
   border-radius: 2px;
   list-style: none;
@@ -61,11 +62,12 @@ html, body {
 
 .suggestion_list li {
   font-size: 1.2rem;
+  line-height: 150%;
 }
 
 .slider_down {
   overflow-y: hidden;
-  max-height: 150px;
+  max-height: 180px;
   transition-property: all;
   transition-duration: 0.5s;
   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
