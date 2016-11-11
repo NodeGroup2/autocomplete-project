@@ -17,7 +17,7 @@ var testVariables = (function() {
     }
     else {
       sendRequest();
-      showSuggestionList();
+      showSuggestionList(); // TODO : check for 0  or less than 5 elements.
     }
   }
 
