@@ -7,7 +7,7 @@ html, body {
 
 .header {
   position: relative;
-  background-color: orange;
+  background-color: rgb(45, 183, 233);
   text-align: center;
   width: 100%;
   padding: 10px 0;
@@ -52,7 +52,7 @@ html, body {
 
 .suggestion_list {
   /*height: 180px;*/
-  background-color: rgb(208, 208, 208);
+  background-color: rgb(236, 236, 236);
   border-radius: 2px;
   list-style: none;
   width: 294px;

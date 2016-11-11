@@ -59,7 +59,8 @@ var autocomplete = (function() {
 
   function updateDOM(matches, inputSaved) {
     matches.forEach(function(match, i){
-      suggestionElements[i].textContent = inputSaved + ' ' + match;
+      suggestionElements[i].innerHTML =
+      inputSaved + ' ' + '<span style="color: rgb(45, 183, 233)" font-weight="bold">' + match + '</span>';
     })
   }
 
