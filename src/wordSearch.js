@@ -1,12 +1,15 @@
 var fs = require('fs');
-var dictionary = require('./readDictionary.js').dictionary;
+var dictionaryFile = require('./readDictionary.js');
 
 function wordSearch (str){
   var prefix = new RegExp("^"+str+"([a-zA-Z])*");
   var prefixMatches = [];
 
-  dictionary.forEach(function(word){
+  dictionaryFile.dictionary.forEach(function(word){
     var prefixInWord = prefix.test(word);
+    if (prefixMatches.length === 5) {
+      return prefixMatches;
+    }
     if(prefixInWord){
       prefixMatches.push(word);
     }
