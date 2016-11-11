@@ -2,7 +2,7 @@ var fs = require('fs');
 var dictionaryFile = require('./readDictionary.js');
 
 function wordSearch (str){
-  var prefix = new RegExp("^"+str+"([a-zA-Z])*");
+  var prefix = new RegExp("^"+str+"([a-zA-Z])*", "i");
   var prefixMatches = [];
 
   dictionaryFile.dictionary.forEach(function(word){
@@ -14,7 +14,7 @@ function wordSearch (str){
       prefixMatches.push(word);
     }
   });
-  console.log(prefixMatches);
+  console.log('ihihihiu',prefixMatches);
   return prefixMatches;
 }
 
