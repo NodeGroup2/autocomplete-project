@@ -11,7 +11,7 @@ function readDictionary(dataBasePath, separator, cb){
       return;
     }
     module.exports.dictionary = data.split(separator).filter(function(x){return x !== ''});
-    cb(module.exports.dictionary);
+    cb();
  });
 }
 module.exports = {

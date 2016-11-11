@@ -1,5 +1,5 @@
 var wordSearch = require('./wordSearch.js');
-var dictionary = require('./readDictionary.js');
+// var dictionary = require('./readDictionary.js');
 
 var handler = function(request,response){
   var prefix = (request.url).split('/')[1];
