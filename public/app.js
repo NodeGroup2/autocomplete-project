@@ -1,4 +1,4 @@
-var testVariables = (function() {
+var autocomplete = (function() {
   // global app variables
   var inputField = document.querySelector(".input_field");
   var suggestionElements = document.querySelectorAll(".suggestion_element");

@@ -1,5 +1,5 @@
-var inputField = testVariables.inputField;
-var suggestionElements = testVariables.suggestionElements;
+var inputField = autocomplete.inputField;
+var suggestionElements = autocomplete.suggestionElements;
 
 QUnit.test('closed suggestion list on empty input field', function(assert) {
   inputField.onkeyup();
