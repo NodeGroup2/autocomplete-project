@@ -7,7 +7,7 @@ var server = http.createServer(handler);
 function startServer() {
   dictionaryFile.readDictionary(null,null, function() {
   server.listen(3000, function(){
-    console.log("The server is listening to port 3000, ready to accept requests");
+    console.log("Dictionary loaded and the server is listening to port 3000. Ready to accept requests");
   });
 })
 }

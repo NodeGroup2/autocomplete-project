@@ -14,7 +14,7 @@ function wordSearch (str){
       prefixMatches.push(word);
     }
   });
-  console.log('ihihihiu',prefixMatches);
+  // console.log('up to 5 matches: ',prefixMatches);
   return prefixMatches;
 }
 
