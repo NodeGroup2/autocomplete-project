@@ -61,8 +61,6 @@ var handler = function(request,response){
   response.end();
 }
 
-
-
-
 };
+
 module.exports = handler;
