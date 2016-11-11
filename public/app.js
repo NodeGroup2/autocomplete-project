@@ -11,6 +11,7 @@ var autocomplete = (function() {
   // };
 
   inputField.onkeyup = function() {
+    console.log('key pressed')
     if (inputField.value === '') {
       hideSuggestionList();
       clearListItems();
