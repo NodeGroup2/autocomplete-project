@@ -28,25 +28,25 @@ test('Dictionary length', function(t) {
   });
 })
 
-// test('search for a word in a string', function(t) {
-//     t.deepEqual(wordSearch('Shir'),['Shireen','Shiry']);
-//     t.end();
-// });
-//
-//
-// test('search for a word in a string', function(t) {
-//     t.deepEqual(wordSearch('Esraa'),['Esraa']);
-//     t.end();
-// });
-//
-//
-// test('search for a word in a string', function(t) {
-//     t.deepEqual(wordSearch('Ma'),['Marina','Marko','Make']);
-//     t.end();
-// });
-//
-//
-// test('search for a word in a string', function(t) {
-//     t.deepEqual(wordSearch('S'),['Shireen','Shiry','Sleep']);
-//     t.end();
-// });
+test('search for a word in a string', function(t) {
+    t.deepEqual(wordSearch('Shir'),['Shireen','Shiry']);
+    t.end();
+});
+
+
+test('search for a word in a string', function(t) {
+    t.deepEqual(wordSearch('Esraa'),['Esraa']);
+    t.end();
+});
+
+
+test('search for a word in a string', function(t) {
+    t.deepEqual(wordSearch('Ma'),['Marina','Marko','Make']);
+    t.end();
+});
+
+
+test('search for a word in a string', function(t) {
+    t.deepEqual(wordSearch('S'),['Shireen','Shiry','Sleep']);
+    t.end();
+});
