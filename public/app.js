@@ -2,6 +2,8 @@ var autocomplete = (function() {
   // global app variables
   var inputField = document.querySelector(".input_field");
   var suggestionElements = document.querySelectorAll(".suggestion_element");
+  var inputSaved = '';
+  var inputLast = '';
 
   // for (var i = 0; i < suggestionElements.length; i++) {
   //   var suggestion = suggestion[i];
@@ -38,9 +40,9 @@ var autocomplete = (function() {
   }
 
   function sendRequest() {
-    var input = inputField.value.split(' ');
-    var inputLast = input.pop();
-    var inputSaved = input.join(' ');
+    input = inputField.value.split(' ');
+    inputLast = input.pop();
+    inputSaved = input.join(' ');
     var url = '/' + inputLast;
     console.log(url);
     var xhr = new XMLHttpRequest();
@@ -60,13 +62,31 @@ var autocomplete = (function() {
   function updateDOM(matches, inputSaved) {
     matches.forEach(function(match, i){
       suggestionElements[i].innerHTML =
-      inputSaved + ' ' + '<span style="color: rgb(45, 183, 233)" font-weight="bold">' + match + '</span>';
+      inputSaved + ' ' + '<span class="match">' + match + '</span>';
     })
   }
+
+  // Event listeners for clicking all suggested elements
+  function addListenersToMatchItems() {
+    var match_items = document.querySelectorAll('.suggestion_element');
+    for (var i = 0; i < match_items.length; i++) {
+      (function(i) {
+        match_items[i].addEventListener("click", function(e) {
+          e.preventDefault();
+          inputLast = e.target.textContent;
+          inputField.value = inputSaved + ' ' + inputLast;
+        });
+      })(i);
+    }
+  };
+
+  addListenersToMatchItems();
 
   // Create object holding global variables for testing purposes
    return {
      inputField : inputField,
-     suggestionElements : suggestionElements
+     suggestionElements : suggestionElements,
+     inputSaved : inputSaved,
+     inputLast : inputLast
    };
 })();

@@ -65,6 +65,14 @@ html, body {
   line-height: 150%;
 }
 
+.match {
+  color: rgb(45, 183, 233);
+}
+
+.match:hover, .match:focus{
+  font-weight: bolder;
+}
+
 .slider_down {
   overflow-y: hidden;
   max-height: 180px;
