@@ -11,6 +11,7 @@ var autocomplete = (function() {
   // };
 
   inputField.onkeyup = function() {
+    console.log('key pressed')
     if (inputField.value === '') {
       hideSuggestionList();
       clearListItems();
@@ -41,18 +42,23 @@ var autocomplete = (function() {
     var inputLast = input.pop();
     var inputSaved = input.join(' ');
     var url = '/' + inputLast;
+    console.log(url);
     var xhr = new XMLHttpRequest();
-    updateDOM(inputSaved);
-    xhr.addEventListener('load', function() {
-      var response = JSON.parse(xhr.responseText);
-      var matches = []; // update with appropriate json object
-      updateDOM(matches);
-    })
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status == 200) {
+        console.log(xhr.responseText);
+        var response = JSON.parse(xhr.responseText);
+        var matches = response;
+        updateDOM(matches, inputSaved);
+      }
+    };
+    xhr.open('GET', url, true);
+    xhr.send();
   }
 
-  function updateDOM(inputSaved) {
-    var mockMatch = ['beauty','beautiful','beautify','beautification','beauties'];  // remove
-    mockMatch.forEach(function(match, i){
+
+  function updateDOM(matches, inputSaved) {
+    matches.forEach(function(match, i){
       suggestionElements[i].textContent = inputSaved + ' ' + match;
     })
   }
