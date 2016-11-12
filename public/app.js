@@ -49,6 +49,7 @@ var autocomplete = (function() {
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4 && xhr.status == 200) {
         console.log(xhr.responseText);
+        clearListItems();
         var response = JSON.parse(xhr.responseText);
         var matches = response;
         updateDOM(matches, inputSaved);
@@ -60,6 +61,7 @@ var autocomplete = (function() {
 
 
   function updateDOM(matches, inputSaved) {
+    console.log(matches);
     matches.forEach(function(match, i){
       suggestionElements[i].innerHTML =  inputSaved + ' ' + '<span class="match">'+match+'</span>';
     })

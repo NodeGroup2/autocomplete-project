@@ -2,6 +2,9 @@ var fs = require('fs');
 var dictionaryFile = require('./readDictionary.js');
 
 function wordSearch (str){
+  if(str === " " || str === ""){
+    return [];
+  }
   var prefix = new RegExp("^"+str+"([a-zA-Z])*", "i");
   var prefixMatches = [];
 
