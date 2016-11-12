@@ -43,7 +43,7 @@ var autocomplete = (function() {
     input = inputField.value.split(' ');
     inputLast = input.pop();
     inputSaved = input.join(' ');
-    var url = '/' + inputLast;
+    var url = '/search/' + inputLast;
     console.log(url);
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -61,8 +61,7 @@ var autocomplete = (function() {
 
   function updateDOM(matches, inputSaved) {
     matches.forEach(function(match, i){
-      suggestionElements[i].innerHTML =
-      inputSaved + ' ' + '<span class="match">' + match + '</span>';
+      suggestionElements[i].innerHTML =  inputSaved + ' ' + '<span class="match">'+match+'</span>';
     })
   }
 
@@ -74,7 +73,7 @@ var autocomplete = (function() {
         match_items[i].addEventListener("click", function(e) {
           e.preventDefault();
           inputLast = e.target.textContent;
-          inputField.value = inputSaved + ' ' + inputLast;
+          inputField.value = (inputSaved.length) ? inputSaved + ' ' + inputLast : inputLast;
         });
       })(i);
     }
