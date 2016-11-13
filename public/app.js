@@ -6,7 +6,6 @@ var autocomplete = (function() {
   var inputLast = '';
 
   inputField.onkeyup = function() {
-    console.log('key pressed')
 
     if (inputField.value === '') {
       hideSuggestionList();
@@ -38,11 +37,9 @@ var autocomplete = (function() {
     inputLast = input.pop();
     inputSaved = input.join(' ');
     var url = '/search/' + inputLast;
-    console.log(url);
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4 && xhr.status == 200) {
-        console.log(xhr.responseText);
         clearListItems();
         var response = JSON.parse(xhr.responseText);
         var matches = response;
@@ -55,7 +52,6 @@ var autocomplete = (function() {
 
 
   function updateDOM(matches, inputSaved) {
-    console.log(inputSaved);
     if(matches.length === 0){
       inputSaved = inputField.value;
       suggestionElements[0].innerHTML =  '<span>'+inputSaved+'</span>';
