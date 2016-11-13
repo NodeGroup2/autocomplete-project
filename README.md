@@ -1,7 +1,7 @@
 # Autocomplete project
 
 ## Objectives
-- Word finder with autocomplete
+- Word finder with autocomplete functionality and google search redirection
 - Suggestions appear dynamically
 - Testing on front-end and back-end
 - Decent code coverage
@@ -16,39 +16,71 @@
 ![Project plan](images/project-plan.jpg)
 
 ## Application flow
-- Read full file (for efficiency)
-- Key stroke event
-- Event emitter
-- Search read data
-- Match with prefix
+- Read dictionary file only once (for efficiency) and before starting the server
+- Key stroke event listener
+- Event emitter to send requests for word searching on key stroke event
+- Search database (**dictionary sorted by popularity** as found [in this repo](https://github.com/first20hours/google-10000-english))
+- Find matches with prefix
 - Update drop-down list
+- Possibility to select from drop-down list
 
-Client request: key stroke  
-Server response: autocomplete suggestions
+__Client request__: key stroke
+
+__Server response__: autocomplete suggestions
 
 ## Folder structure
 - public
   - index.html
   - styles.css
+  - app.js
 - src
   - dictionary.txt
   - modules (.js)
+  - server.js
 - tests
-- server.js
+  - tape-tests.js
+  - qunit-tests.js
+- package.json
+- qunit.html
+- .gitignore
 
 ## Front-end design
+- Header/banner
 - Text input box
 - Search button
-- Drop-down menu
+- Drop-down list
 
 ## Testing
 - Front-end using qUnit
 - Back-end using Tape
 - Unit testing
 
-## Wednesday
-- Make project plan
-- Research data structures
+## Daily progress
 
-## Thursday
-## Friday
+#### Wednesday
+- Make project plan
+- Research data structures (e.g. tries, hash tables etc) to improve performance
+- Setup folder structure and basic front-end
+- Start working on modules in the back end
+
+#### Thursday
+- Write front-end and back-end tests
+- Add styling to webpage
+- Build all required modules and import in the necessary files
+- Set the server running
+
+#### Friday
+- Serve public files through the server (i.e. create routing rules)
+- Fix require/export sequence (e.g. start server after loading dictionary database)
+- Add more tests
+
+#### Saturday
+- Add selection functionality to dropdown list
+- Add code (front-end and back-end) for edge cases (e.g. return no word matches if the user has only entered spaces)
+- Change page styling to improve readability
+
+#### Sunday
+- Fix bugs in the front-end
+- Refactor handler module
+- Install Istanbul to get code coverage
+- Heroku deployment (stretch goal)
