@@ -50,7 +50,9 @@ var handler = function(request,response){
 });
 
 } else if (request.url) {
-  var prefix = (request.url).split('/')[1];
+  var prefix = (request.url).split('/search/')[1];
+  console.log(request.url,"some");
+  console.log(prefix,'******');
   var matches = JSON.stringify(wordSearch(prefix));
   response.writeHead(200, { "content-type": "application/json"} );
   response.end(matches);
