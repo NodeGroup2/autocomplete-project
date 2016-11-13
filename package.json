@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "tape './tests/tape/*.js' | tap-spec",
-    "watch": "nodemon -q -x 'npm test'"
+    "watch": "nodemon -q -x 'npm test'",
+    "start": "nodemon -q -x 'node src/server.js'"
   },
   "repository": {
     "type": "git",
