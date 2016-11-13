@@ -3,66 +3,35 @@ var fs = require('fs');
 // var StringDecoder = require('string_decoder').StringDecoder;
 // var dictionary = require('./readDictionary.js');
 
-var handler = function(request,response){
-  if (request.url == '/' || request.url == '/index.html') {
+var path = {
+  '/' : '/../public/index.html',
+  '/index.html' : '/../public/index.html',
+  '/styles.css' : '/../public/styles.css',
+  '/normalize.css': '/../public/normalize.css',
+  '/public/app.js': '/../public/app.js'
+}
 
-    fs.readFile(__dirname + '/../public/index.html','utf-8', function(error, file) {
+var handler = function(request,response){
+  var endpoint = request.url.split('.')[1] || "html";
+  var searchInput = (request.url).split('/search/');
+  if (path[request.url]) {
+    fs.readFile(__dirname + path[request.url],'utf-8', function(error, file) {
     if (error) {
       console.log (error);
       return;
     }
-    // var decoder = new StringDecoder('utf8');
-    response.writeHead(200, { "content-type": "text/html"} );
+    response.writeHead(200, { "content-type": "text/" + (endpoint == 'js' ? 'javascript' : endpoint)} );
     response.end(file);
-  });
-
-} else if (request.url == '/styles.css') {
-
-  fs.readFile(__dirname + '/../public/styles.css', function(error, file) {
-  if (error) {
-    console.log (error);
-    return;
+    });
+  } else if (searchInput.length > 1) {
+    var matches = JSON.stringify(wordSearch(searchInput[1]));
+    response.writeHead(200, { "content-type": "application/json"} );
+    response.end(matches);
+  } else {
+    response.writeHead(404, { "content-type": "text/html" });
+    response.write('<h1>404 Page Requested Cannot be Found</h1>');
+    response.end();
   }
-  response.writeHead(200, { "content-type": "text/css"} );
-  response.end(file);
-});
-
-} else if (request.url == '/normalize.css') {
-
-  fs.readFile(__dirname + '/../public/normalize.css', function(error, file) {
-  if (error) {
-    console.log (error);
-    return;
-  }
-  response.writeHead(200, { "content-type": "text/css"} );
-  response.end(file);
-});
-
-} else if (request.url == '/public/app.js') {
-
-  fs.readFile(__dirname + '/../public/app.js', function(error, file) {
-  if (error) {
-    console.log (error);
-    return;
-  }
-  response.writeHead(200, { "content-type": "text/javascript"} );
-  response.end(file);
-});
-
-} else if (request.url) {
-  var prefix = (request.url).split('/search/')[1];
-  console.log(request.url,"some");
-  console.log(prefix,'******');
-  var matches = JSON.stringify(wordSearch(prefix));
-  response.writeHead(200, { "content-type": "application/json"} );
-  response.end(matches);
-
-} else {
-  response.writeHead(404, { "content-type": "text/html" });
-  response.write('<h1>404 Page Requested Cannot be Found</h1>');
-  response.end();
-}
-
 };
 
 module.exports = handler;
