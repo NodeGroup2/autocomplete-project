@@ -58,7 +58,7 @@ var autocomplete = (function() {
     console.log(inputSaved);
     if(matches.length === 0){
       inputSaved = inputField.value;
-      suggestionElements[0].innerHTML =  inputSaved;
+      suggestionElements[0].innerHTML =  '<span>'+inputSaved+'</span>';
     }
     matches.forEach(function(match, i){
       suggestionElements[i].innerHTML =  inputSaved + ' ' + '<span class="match">'+match+'</span>';
