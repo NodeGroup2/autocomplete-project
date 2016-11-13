@@ -2,9 +2,7 @@ var test = require('tape');
 var readDictionary = require('../../src/readDictionary.js').readDictionary;
 var dictionaryFile = require('../../src/readDictionary.js');
 var wordSearch = require('../../src/wordSearch.js');
-var server = require('../../src/server.js');
 var handler = require('../../src/handler.js');
-var http = require('http')
 
 // Mock test
 test('Description for your test', function(t) {
@@ -12,7 +10,7 @@ test('Description for your test', function(t) {
   t.end();
 });
 
-//Read Dictionary function tests
+// Read Dictionary function tests
 test('Empty dictionary array on empty file', function(t) {
   readDictionary('/../tests/tape/emptyFile.txt',null,function() {
     t.deepEqual(dictionaryFile.dictionary, []);
@@ -50,10 +48,4 @@ test('search for a hell in dictionary', function(t) {
 test('search for lkjkfjh in dictionary, result should be empty', function(t) {
     t.deepEqual(wordSearch('lkjkfjh'),[]);
     t.end();
-});
-
-//Server tests
-test('Calling handler with empty endpoint /, result should be empty',function(t) {
-  t.pass('to be written later');
-  t.end();
 });
