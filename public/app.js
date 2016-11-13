@@ -2,6 +2,7 @@ var autocomplete = (function() {
   // global app variables
   var inputField = document.querySelector(".input_field");
   var suggestionElements = document.querySelectorAll(".suggestion_element");
+  var searchBtn = document.querySelector(".search_btn");
   var inputSaved = '';
   var inputLast = '';
 
@@ -76,6 +77,24 @@ var autocomplete = (function() {
   };
 
   addListenersToMatchItems();
+
+  searchBtn.onclick = function() {
+    redirectToGoogle();
+  }
+
+  inputField.onkeypress = function(e) {
+    if (e.keyCode == 13) {
+      redirectToGoogle();
+    }
+  }
+
+  function redirectToGoogle() {
+    var inputValue = (inputField.value).replace(/\s/g, '+');
+    if (inputValue) {
+      var googleLink = "https://www.google.co.uk/?#q=" + inputValue;
+      window.open(googleLink);
+    }
+  }
 
   // Create object holding global variables for testing purposes
    return {
