@@ -70,7 +70,8 @@ var autocomplete = (function() {
         match_items[i].addEventListener("click", function(e) {
           e.preventDefault();
           inputLast = e.target.textContent;
-          inputField.value = (inputSaved.length) ? inputSaved + ' ' + inputLast : inputLast;
+          inputField.value = (inputSaved.length) ? inputSaved + ' ' + inputLast + ' ' : inputLast + ' ';
+          inputField.focus();
         });
       })(i);
     }
