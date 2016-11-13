@@ -71,9 +71,6 @@ var autocomplete = (function() {
         e.preventDefault();
         inputLast = e.target.textContent;
         inputField.value = inputSaved + ' ' + inputLast + ' ';
-        console.log('inputLast ', inputLast);
-        console.log('inputSaved ', inputSaved);
-        console.log('inputField value ', inputField.value);
         inputField.focus();
       };
     }
