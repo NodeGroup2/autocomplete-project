@@ -7,7 +7,7 @@
     "test": "tape './tests/tape/*.js' | tap-spec",
     "watch": "nodemon -q -x 'npm test'",
     "start": "nodemon -q -x 'node src/server.js'",
-    "coverage": "istanbul cover  --report text tape -- -r ./tests/tape/tape-tests.js ./src/wordSearch.js"
+    "coverage": "node ./node_modules/.bin/istanbul cover ./tests/tape/tape-tests.js"
   },
   "repository": {
     "type": "git",
