@@ -1,0 +1,40 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'run', 'coverage' ]
+2 info using npm@2.15.9
+3 info using node@v4.6.1
+4 verbose run-script [ 'precoverage', 'coverage', 'postcoverage' ]
+5 info precoverage autocomplete-project@1.0.0
+6 info coverage autocomplete-project@1.0.0
+7 verbose unsafe-perm in lifecycle true
+8 info autocomplete-project@1.0.0 Failed to exec coverage script
+9 verbose stack Error: autocomplete-project@1.0.0 coverage: `istanbul cover  --report text _tape -- -r ./tests/tape/tape-tests.js ./src/wordSearch.js`
+9 verbose stack Exit status 1
+9 verbose stack     at EventEmitter.<anonymous> (/usr/lib/node_modules/npm/lib/utils/lifecycle.js:217:16)
+9 verbose stack     at emitTwo (events.js:87:13)
+9 verbose stack     at EventEmitter.emit (events.js:172:7)
+9 verbose stack     at ChildProcess.<anonymous> (/usr/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+9 verbose stack     at emitTwo (events.js:87:13)
+9 verbose stack     at ChildProcess.emit (events.js:172:7)
+9 verbose stack     at maybeClose (internal/child_process.js:829:16)
+9 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+10 verbose pkgid autocomplete-project@1.0.0
+11 verbose cwd /home/marina/Projects/Repos/autocomplete-project
+12 error Linux 4.4.0-45-generic
+13 error argv "/usr/bin/nodejs" "/usr/bin/npm" "run" "coverage"
+14 error node v4.6.1
+15 error npm  v2.15.9
+16 error code ELIFECYCLE
+17 error autocomplete-project@1.0.0 coverage: `istanbul cover  --report text _tape -- -r ./tests/tape/tape-tests.js ./src/wordSearch.js`
+17 error Exit status 1
+18 error Failed at the autocomplete-project@1.0.0 coverage script 'istanbul cover  --report text _tape -- -r ./tests/tape/tape-tests.js ./src/wordSearch.js'.
+18 error This is most likely a problem with the autocomplete-project package,
+18 error not with npm itself.
+18 error Tell the author that this fails on your system:
+18 error     istanbul cover  --report text _tape -- -r ./tests/tape/tape-tests.js ./src/wordSearch.js
+18 error You can get information on how to open an issue for this project with:
+18 error     npm bugs autocomplete-project
+18 error Or if that isn't available, you can get their info via:
+18 error
+18 error     npm owner ls autocomplete-project
+18 error There is likely additional logging output above.
+19 verbose exit [ 1, true ]
