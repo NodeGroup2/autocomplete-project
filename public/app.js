@@ -59,25 +59,22 @@ var autocomplete = (function() {
     }
     matches.forEach(function(match, i){
       suggestionElements[i].innerHTML =  inputSaved + ' ' + '<span class="match">'+match+'</span>';
+      addListenersToMatchItems();
     })
   }
 
   // Event listeners for clicking all suggested elements
   function addListenersToMatchItems() {
-    var match_items = document.querySelectorAll('.suggestion_element');
+    var match_items = document.querySelectorAll('.match');
     for (var i = 0; i < match_items.length; i++) {
-      (function(i) {
-        match_items[i].addEventListener("click", function(e) {
-          e.preventDefault();
-          inputLast = e.target.textContent;
-          inputField.value = (inputSaved.length) ? inputSaved + ' ' + inputLast + ' ' : inputLast + ' ';
-          inputField.focus();
-        });
-      })(i);
+      match_items[i].onclick = function(e) {
+        e.preventDefault();
+        inputLast = e.target.textContent;
+        inputField.value = inputSaved + ' ' + inputLast + ' ';
+        inputField.focus();
+      };
     }
   };
-
-  addListenersToMatchItems();
 
   searchBtn.onclick = function() {
     redirectToGoogle();
