@@ -60,16 +60,16 @@ html, body {
   text-align: left;
 }
 
-.suggestion_list li {
+.suggestion_element {
   font-size: 1.2rem;
   line-height: 150%;
 }
 
 .match {
-  color: rgb(45, 183, 233);
+  color: rgb(0, 0, 204);
 }
 
-.match:hover, .match:focus{
+.suggestion_element:hover, .suggestion_element:focus{
   font-weight: bolder;
 }
 

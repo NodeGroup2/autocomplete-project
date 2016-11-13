@@ -5,21 +5,15 @@ var autocomplete = (function() {
   var inputSaved = '';
   var inputLast = '';
 
-  // for (var i = 0; i < suggestionElements.length; i++) {
-  //   var suggestion = suggestion[i];
-  //   suggestion.addEventListener("click", function() {
-  //     handleInput(this.id);
-  //   });
-  // };
-
   inputField.onkeyup = function() {
+
     if (inputField.value === '') {
       hideSuggestionList();
       clearListItems();
     }
-    else {
+    else if((/^(\s*)([a-z]+)/i).test(inputField.value)){
       sendRequest();
-      showSuggestionList(); // TODO : check for 0  or less than 5 elements.
+      showSuggestionList();
     }
   }
 
@@ -58,6 +52,10 @@ var autocomplete = (function() {
 
 
   function updateDOM(matches, inputSaved) {
+    if(matches.length === 0){
+      inputSaved = inputField.value;
+      suggestionElements[0].innerHTML =  '<span>'+inputSaved+'</span>';
+    }
     matches.forEach(function(match, i){
       suggestionElements[i].innerHTML =  inputSaved + ' ' + '<span class="match">'+match+'</span>';
     })
