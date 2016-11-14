@@ -5,11 +5,15 @@ function wordSearch (str){
   if(str === " " || str === ""){
     return [];
   }
-  var prefix = new RegExp("^"+str+"([a-zA-Z])*", "i");
+  var prefix = new RegExp("^"+str+"(\s)*([a-z]+)\'?([a-z]*)$", "i");
   var prefixMatches = [];
 
   dictionaryFile.dictionary.forEach(function(word){
-    var prefixInWord = prefix.test(word);
+    try{
+      var prefixInWord = prefix.test(word);
+    } catch(err){
+      return;
+    }
     if (prefixMatches.length === 5) {
       return prefixMatches;
     }

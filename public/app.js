@@ -12,7 +12,7 @@ var autocomplete = (function() {
       hideSuggestionList();
       clearListItems();
     }
-    else if((/^(\s*)([a-z]+)/i).test(inputField.value)){
+    else if((/^(\s*)([a-z]+)\'?([a-z]*)/i).test(inputField.value)){
       sendRequest();
       showSuggestionList();
     }
