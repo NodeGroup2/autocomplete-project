@@ -6,7 +6,7 @@ var autocomplete = (function() {
   var inputSaved = '';
   var inputLast = '';
 
-  inputField.onkeyup = function() {
+  inputField.oninput = function() {
 
     if (inputField.value === '') {
       hideSuggestionList();
