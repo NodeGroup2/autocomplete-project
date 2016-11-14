@@ -70,7 +70,7 @@ var autocomplete = (function() {
       match_items[i].onclick = function(e) {
         e.preventDefault();
         inputLast = e.target.textContent;
-        inputField.value = inputSaved + ' ' + inputLast + ' ';
+        inputField.value = inputSaved + (inputSaved ? ' ' : '') + inputLast + ' ';
         inputField.focus();
       };
     }
