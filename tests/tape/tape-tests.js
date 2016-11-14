@@ -3,6 +3,7 @@ var readDictionary = require('../../src/readDictionary.js').readDictionary;
 var dictionaryFile = require('../../src/readDictionary.js');
 var wordSearch = require('../../src/wordSearch.js');
 var handler = require('../../src/handler.js');
+var fs = require('fs');
 
 // Mock test
 test('Description for your test', function(t) {
@@ -32,6 +33,13 @@ test('Dictionary length', function(t) {
   });
 })
 
+//testing fs module is not neccessarily good practice #issue70
+test('error handling in readDictionary function', function(t) {
+  fs.readFile('/../src/dictionar.txt','utf-8',function(err,data) {
+    t.ok(err,'if err exist');
+    t.end();
+  });
+})
 //Word Search function tests
 test('Search for t in dictionary', function(t) {
     t.deepEqual(wordSearch("t"),['the','to', 'that','this','time']);
@@ -47,5 +55,13 @@ test('search for a hell in dictionary', function(t) {
 
 test('search for lkjkfjh in dictionary, result should be empty', function(t) {
     t.deepEqual(wordSearch('lkjkfjh'),[]);
+    t.end();
+});
+test('search for "" in dictionary, result should be empty array', function(t) {
+    t.deepEqual(wordSearch(''),[]);
+    t.end();
+});
+test('search for " " in dictionary, result should be empty array', function(t) {
+    t.deepEqual(wordSearch(' '),[]);
     t.end();
 });

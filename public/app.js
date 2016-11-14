@@ -5,14 +5,15 @@ var autocomplete = (function() {
   var searchBtn = document.querySelector(".search_btn");
   var inputSaved = '';
   var inputLast = '';
+  var matches = '';
+  var input = '';
 
   inputField.oninput = function() {
-
     if (inputField.value === '') {
       hideSuggestionList();
       clearListItems();
     }
-    else if((/^(\.{3})?(\s*)([a-z]+)/i).test(inputField.value)){
+    else if((/^(\.{3})?(\s*)([a-z]+)\'?([a-z]*)/i).test(inputField.value)){
       sendRequest();
       showSuggestionList();
     }
@@ -103,6 +104,10 @@ var autocomplete = (function() {
      inputField : inputField,
      suggestionElements : suggestionElements,
      inputSaved : inputSaved,
-     inputLast : inputLast
+     inputLast : inputLast,
+     matches : matches,
+     clearListItems : clearListItems,
+     updateDOM : updateDOM,
+     sendRequest : sendRequest
    };
 })();
