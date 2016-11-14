@@ -1,5 +1,12 @@
 var inputField = autocomplete.inputField;
 var suggestionElements = autocomplete.suggestionElements;
+var mockMatch =  autocomplete.mockMatch;
+
+QUnit.module("front-end tests", {
+  beforeEach: function() {
+    inputField.value = '';
+  }
+});
 
 QUnit.test('closed suggestion list on empty input field', function(assert) {
   inputField.onkeyup();
@@ -33,11 +40,22 @@ QUnit.test('showing no matches when input field is empty', function(assert) {
   }
 });
 
-// QUnit.test('same number of words in the input field and suggestion list', function(assert) {
-//   inputField.value = "so many words here";
-//   inputField.onkeyup();
+QUnit.test('same number of words in the input field and suggestion list', function(assert) {
+  inputField.value = "so many words here ";
+  inputField.onkeyup();
+  for (var i = 0; i < suggestionElements.length; i++) {
+    var item = suggestionElements[i];
+    assert.equal(item.textContent.split(' ').length, inputField.value.split(' ').length,"comparing number of words");
+  }
+});
+
+// QUnit.test('keeping suggestion list closed if there are no matches', function(assert) {
+//   inputField.value = "so many words here ";
+//   mockMatch = [];
+//   inputField.onkeyup()
+//   var listBox = document.querySelector('.suggestion_container');
 //   for (var i = 0; i < suggestionElements.length; i++) {
 //     var item = suggestionElements[i];
-//     assert.equal(item.textContent.split(' ').length, inputField.value.split(' ').length,"comparing number of words");
+//     assert.ok(listBox.classList.contains("closed"),'true passes');
 //   }
 // });
