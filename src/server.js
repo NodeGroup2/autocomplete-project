@@ -8,7 +8,7 @@ var port = process.env.PORT || 3000;
 function startServer() {
   dictionaryFile.readDictionary(null,null, function() {
   server.listen(port, function(){
-    console.log("Dictionary loaded, server listening to port 3000, ready to accept requests");
+    console.log("Dictionary loaded, server listening to port " + port + ", ready to accept requests");
   });
 })
 }
