@@ -8,12 +8,12 @@ var autocomplete = (function() {
   var matches = '';
   var input = '';
 
-  inputField.onkeyup = function() {
+  inputField.oninput = function() {
     if (inputField.value === '') {
       hideSuggestionList();
       clearListItems();
     }
-    else if((/^(\s*)([a-z]+)\'?([a-z]*)/i).test(inputField.value)){
+    else if((/^(\.{3})?(\s*)([a-z]+)\'?([a-z]*)/i).test(inputField.value)){
       sendRequest();
       showSuggestionList();
     }
@@ -54,14 +54,18 @@ var autocomplete = (function() {
 
 
   function updateDOM(matches, inputSaved) {
+    var input = inputField.value;
+    if(input.length > 30) {
+      inputField.value = '... ' + input.slice(20);
+    }
     if(matches.length === 0){
       inputSaved = inputField.value;
       suggestionElements[0].innerHTML =  '<span>'+inputSaved+'</span>';
     }
     matches.forEach(function(match, i){
       suggestionElements[i].innerHTML =  inputSaved + ' ' + '<span class="match">'+match+'</span>';
-      addListenersToMatchItems();
     })
+    addListenersToMatchItems();
   }
 
   // Event listeners for clicking all suggested elements
