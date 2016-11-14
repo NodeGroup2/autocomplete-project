@@ -57,7 +57,7 @@ __Server response__: autocomplete suggestions
 - Back-end using Tape
 - Unit testing
 
-## Daily progress
+## Record of daily progress
 
 #### Wednesday
 - Make project plan
@@ -85,4 +85,6 @@ __Server response__: autocomplete suggestions
 - Fix bugs in the front-end
 - Refactor handler module
 - Install Istanbul to get code coverage
-- Heroku deployment (stretch goal)
+
+#### Monday
+- Heroku deployment
