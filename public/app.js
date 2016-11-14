@@ -5,9 +5,10 @@ var autocomplete = (function() {
   var searchBtn = document.querySelector(".search_btn");
   var inputSaved = '';
   var inputLast = '';
+  var matches = '';
+  var input = '';
 
   inputField.onkeyup = function() {
-
     if (inputField.value === '') {
       hideSuggestionList();
       clearListItems();
@@ -99,6 +100,10 @@ var autocomplete = (function() {
      inputField : inputField,
      suggestionElements : suggestionElements,
      inputSaved : inputSaved,
-     inputLast : inputLast
+     inputLast : inputLast,
+     matches : matches,
+     clearListItems : clearListItems,
+     updateDOM : updateDOM,
+     sendRequest : sendRequest
    };
 })();
