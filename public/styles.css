@@ -58,6 +58,7 @@ html, body {
   padding: 12px 1px 12px 12px;
   margin-top: 4px;
   text-align: left;
+  cursor: pointer;
 }
 
 .suggestion_element {
