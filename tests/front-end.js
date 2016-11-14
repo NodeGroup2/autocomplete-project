@@ -15,7 +15,7 @@ QUnit.module("front-end tests", {
 });
 
 QUnit.test('closed suggestion list on empty input field', function(assert) {
-  inputField.onkeyup();
+  inputField.oninput();
   var listBox = document.querySelector('.suggestion_container');
   assert.ok(listBox.classList.contains("closed"), 'true passes');
 });
@@ -24,13 +24,13 @@ QUnit.test('expanded suggestion list on keyup event', function(assert) {
   var listBox = document.querySelector('.suggestion_container');
   // mimicing typing in the input field
   inputField.value = "let's try something!"
-  inputField.onkeyup();
+  inputField.oninput();
   assert.notOk(listBox.classList.contains("closed"), 'false passes');
 });
 
 QUnit.test('showing single-word matches on typing a single word', function(assert) {
   inputField.value = "be";
-  inputField.onkeyup();
+  inputField.oninput();
   updateDOM(['beauty', 'beautify', 'beautification', 'beautiful', 'before']);
   for (var i = 0; i < suggestionElements.length; i++) {
     var item = suggestionElements[i];
@@ -40,7 +40,7 @@ QUnit.test('showing single-word matches on typing a single word', function(asser
 
 QUnit.test('showing no matches when input field is empty', function(assert) {
   inputField.value = "";
-  inputField.onkeyup();
+  inputField.oninput();
   for (var i = 0; i < suggestionElements.length; i++) {
     var item = suggestionElements[i];
     assert.notOk(item.textContent, 'empty string passes');
