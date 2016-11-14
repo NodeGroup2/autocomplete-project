@@ -49,3 +49,11 @@ test('search for lkjkfjh in dictionary, result should be empty', function(t) {
     t.deepEqual(wordSearch('lkjkfjh'),[]);
     t.end();
 });
+test('search for "" in dictionary, result should be empty array', function(t) {
+    t.deepEqual(wordSearch(''),[]);
+    t.end();
+});
+test('search for " " in dictionary, result should be empty array', function(t) {
+    t.deepEqual(wordSearch(' '),[]);
+    t.end();
+});
